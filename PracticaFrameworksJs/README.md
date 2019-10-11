@@ -1,4 +1,4 @@
-– Realizar la simulación del funcionamiento de una lista simpñemente enlazada donde se pueda realizar:<br>
+Realizar la simulación del funcionamiento de una lista simpñemente enlazada donde se pueda realizar:<br>
   – Insertar un elemento en un lugar seleccionado<br>
   – Eliminar un elemento seleccionado<br>
 Los elementos se seleccionan con un tap.<br>
