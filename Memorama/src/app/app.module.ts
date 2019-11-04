@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { TableroComponent } from './tablero/tablero.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MainComponent } from './main/main.component';
     MainComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
