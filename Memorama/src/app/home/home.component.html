@@ -1,0 +1,29 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="over">
+    <mat-nav-list>
+      <mat-list-item>
+        <a matLine (click)="sidenav.toggle()" routerLink="/main">
+          <fa-icon [icon]="['fas', 'home']"></fa-icon>
+          INICIO
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a matLine (click)="sidenav.toggle();logOut()">
+          <fa-icon [icon]="['fas', 'sign-out-alt']"></fa-icon>
+          SALIR
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="main-container">
+    <mat-toolbar color="primary" *ngIf="login">
+      <mat-toolbar-row>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <fa-icon [icon]="['fas', 'bars']"></fa-icon>
+        </button>
+        <h1>Juego de Memorama</h1>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
