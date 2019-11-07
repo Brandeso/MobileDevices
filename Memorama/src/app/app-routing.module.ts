@@ -1,22 +1,21 @@
-import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from '../app/login/login.component';
-import { MainComponent } from '../app/main/main.component';
-import { TableroComponent } from '../app/tablero/tablero.component';
+import { MainComponent } from './main/main.component';
+import { BoardComponent } from './board/board.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'main' , component: MainComponent },
-  { path: 'tablero', component: TableroComponent },
-  { path: 'scoreboard', component: ScoreboardComponent }
+  {path: '', redirectTo: '/main', pathMatch: 'full'},
+  { path: 'main', component: MainComponent },
+  { path: 'board', component: BoardComponent },
+  { path: 'scoreboard', component: ScoreboardComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
+export class AppRoutingModule {
 
-export class AppRoutingModule {}
+}

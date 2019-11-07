@@ -1,1 +1,42 @@
-<p>main works!</p>
+<br>
+<div class = 'card'>
+    <div class = 'card-body'>
+        <h3 class = 'card-title'>Juego de Memorama</h3>
+        <p class = 'card-text'>
+            <strong>Reglas e Instrucciones:</strong>
+            <ol>
+                <li>Todos los pares se revuelven y se colocan boca abajo en un tablero, mesa o en el suelo.</li>
+                <li>Se puede jugar solo.</li>
+                <li>Si es entre varias personas cada quién tiene un turno.</li>
+                <li>En tu turno puedes levantar dos cartas:</li>
+                <ul>
+                    <li>Si ves que las dos cartas son iguales entonces ya tienes un par, agarras el par y puedes hasta seguir tirando
+                        hasta que te equivoques.</li>
+                    <li>Si dichas cartas no son iguales entonces deberás de volverlas a poner exactamente en su lugar y dejar que el
+                        otro tire.</li>
+                </ul>
+                <li>El juego debe continuar hasta que se acaben todas las cartas que están boca abajo.</li>
+                <li>Al final se cuentan todos los pares que cada uno tiene, aquel que tenga más es el ganador.</li>
+            </ol>
+        <!-- </p> -->
+    </div>
+</div>
+<hr>
+<div class = 'card'>
+    <div class = 'card-body'>
+        <h3 class = 'card-title'>¡Juega ahora!</h3>
+        <div class = 'form-group'>
+            <label for = 'name'>Nombre:</label>
+            <input type = 'text' class = 'form-control' id = 'name' placeholder = 'Nombre / Nickname' name = 'name'>
+            <label for = 'cards'>Elige un tipo de cartas</label>
+            <select class = 'form-control' id = 'cards' name = 'cards'>
+                <option value = '' disabled selected>–––– Elija una opción ––––</option>
+                <option value = 'vgames'>Videojuegos</option>
+                <option value = 'desert'>Animales del Desierto</option>
+                <option value = 'soccer'>Equipos de Futbol</option>
+            </select>
+            <hr>
+            <button type = 'button' id = 'iniciarJuego' class = 'form-control' disabled>Jugar</button>
+        </div>
+    </div>
+</div>
