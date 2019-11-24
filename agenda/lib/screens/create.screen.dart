@@ -6,15 +6,9 @@ class CreateScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Second Screen"),
+        title: Text("Crear Evento"),
       ),
       body: Center(
-        child: RaisedButton(
-          onPressed: () {
-
-          },
-          child: Text('Go back!'),
-        ),
       ),
     );
   }

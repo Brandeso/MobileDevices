@@ -26,20 +26,27 @@ class _HomeState extends State<HomeScreen> {
           alignment: Alignment.center,
           child: Column(
             children: <Widget>[
-              RaisedButton(
-                shape: StadiumBorder(),
-                splashColor: Colors.orange,
-                color: Theme.of(context).primaryColor,
-                onPressed: () => { Navigator.pushNamed(context, '/create') },
-                child: Text('Crear Evento', style: TextStyle(color: Colors.white)),
+              ButtonTheme(
+                minWidth: double.infinity,
+                height: 50.0,
+                child: RaisedButton(
+                  shape: StadiumBorder(),
+                  splashColor: Theme.of(context).accentColor,
+                  color: Theme.of(context).primaryColor,
+                  onPressed: () => { Navigator.pushNamed(context, '/create') },
+                  child: Text("Crear Evento", style: TextStyle(color: Colors.white)),
+                ),
               ),
               SizedBox(height: 50),
               ButtonTheme(
-                minWidth: 200.0,
-                height: 100.0,
+                minWidth: double.infinity,
+                height: 50.0,
                 child: RaisedButton(
-                  onPressed: () {},
-                  child: Text("test"),
+                  shape: StadiumBorder(),
+                  splashColor: Theme.of(context).accentColor,
+                  color: Theme.of(context).primaryColor,
+                  onPressed: () => { Navigator.pushNamed(context, '/view') },
+                  child: Text("Ver Eventos", style: TextStyle(color: Colors.white)),
                 ),
               ),
             ],

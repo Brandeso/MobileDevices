@@ -8,7 +8,7 @@ ThemeData _buildTheme() {
       fontFamily: 'Roboto'
   );
   return base.copyWith(
-    primaryColor: Color.fromRGBO(90, 42, 130, 1),
+    primaryColor: Color.fromRGBO(0, 138, 174, 1),
     accentColor: Color.fromRGBO(152, 81, 170, 1),
   );
 }
