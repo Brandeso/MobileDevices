@@ -18,13 +18,14 @@ class _HomeState extends State<HomeScreen> {
         leading: IconButton(icon: Icon(Icons.menu), onPressed: () {},),
         title: Text('Agenda'),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
-          height: 400,
+          height: 200,
           padding: EdgeInsets.symmetric(horizontal: 20),
           alignment: Alignment.center,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               ButtonTheme(
                 minWidth: double.infinity,
@@ -37,7 +38,7 @@ class _HomeState extends State<HomeScreen> {
                   child: Text("Crear Evento", style: TextStyle(color: Colors.white)),
                 ),
               ),
-              SizedBox(height: 50),
+              SizedBox(height: 25),
               ButtonTheme(
                 minWidth: double.infinity,
                 height: 50.0,
