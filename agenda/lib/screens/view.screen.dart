@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:agenda/routes.dart';
 
-class ViewScreen extends StatelessWidget {
+class ViewScreen extends StatefulWidget {
+  @override
+  _viewState createState() => new _viewState();
+}
+
+class _viewState extends State<ViewScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
