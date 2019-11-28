@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:agenda/models/event.model.dart';
+import 'package:agenda/utils/database.helper.dart';
 
 class CreateScreen extends StatefulWidget {
   @override
@@ -10,18 +12,35 @@ class _CreateScreen extends State<CreateScreen> {
   List<String> _categories = ['Cita', 'Junta', 'Proyecto', 'Examen', 'Otro'];
   String _selectedCategory;
 
+  List<String> _status = ['Pendiente', 'Realizado', 'Aplazado'];
+  String _selectedStatus;
+
   String _date = "2019 - 1 - 1";
   String _time = "00 : 00 : 00";
 
   String _description = "";
+
   void _onChange(String value) {
     setState(() {
       _description = value;
     });
   }
 
-  List<String> _status = ['Pendiente', 'Realizado', 'Aplazado'];
-  String _selectedStatus;
+  void _addEvent(Event event) async {
+    var db = new DatabaseHelper();
+
+    // Add Event
+    int savedEvent = await db.saveEvent(event);
+    if(savedEvent > 0) {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Success!'),
+            content: Text("Evento agregado exitosamente"),
+          )
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,9 +80,9 @@ class _CreateScreen extends State<CreateScreen> {
                 SizedBox(height: 10,),
                 RaisedButton(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0)),
-                    onPressed: () {
-                      DatePicker.showDatePicker(
+                      borderRadius: BorderRadius.circular(5.0)),
+                  onPressed: () {
+                    DatePicker.showDatePicker(
                         context,
                         theme: DatePickerTheme(
                           containerHeight: 210.0,
@@ -71,12 +90,12 @@ class _CreateScreen extends State<CreateScreen> {
                         showTitleActions: true,
                         minTime: DateTime(2019, 1, 1),
                         maxTime: DateTime(2030, 12, 31), onConfirm: (date) {
-                          print('confirm $date');
-                          _date = '${date.year} - ${date.month} - ${date.day}';
-                          setState(() {});
-                        }, currentTime: DateTime.now(), locale: LocaleType.en
-                      );
-                    },
+                      print('confirm $date');
+                      _date = '${date.year} - ${date.month} - ${date.day}';
+                      setState(() {});
+                    }, currentTime: DateTime.now(), locale: LocaleType.en
+                    );
+                  },
                   child: Container(
                     alignment: Alignment.center,
                     height: 50.0,width: double.infinity,
@@ -96,9 +115,9 @@ class _CreateScreen extends State<CreateScreen> {
                                   Text(
                                     " $_date",
                                     style: TextStyle(
-                                      color: Theme.of(context).primaryColor,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 18.0
+                                        color: Theme.of(context).primaryColor,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18.0
                                     ),
                                   ),
                                 ],
@@ -121,7 +140,7 @@ class _CreateScreen extends State<CreateScreen> {
                 SizedBox(height: 10,),
                 RaisedButton(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0)
+                      borderRadius: BorderRadius.circular(5.0)
                   ),
                   onPressed: () {
                     DatePicker.showTimePicker(context,
@@ -197,6 +216,18 @@ class _CreateScreen extends State<CreateScreen> {
                       value: status,
                     );
                   }).toList(),
+                ),
+                SizedBox(height: 15,),
+                ButtonTheme(
+                  minWidth: double.infinity,
+                  height: 50.0,
+                  child: RaisedButton(
+                    shape: StadiumBorder(),
+                    splashColor: Theme.of(context).accentColor,
+                    color: Theme.of(context).primaryColor,
+                    onPressed: ()=>{_addEvent(new Event(_selectedCategory, _date, _time, _description, _selectedStatus))},
+                    child: Text("Crear Evento", style: TextStyle(color: Colors.white)),
+                  ),
                 ),
               ],
             ),

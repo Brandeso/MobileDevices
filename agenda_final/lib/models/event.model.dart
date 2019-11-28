@@ -1,3 +1,5 @@
+import 'package:agenda/utils/database.helper.dart';
+
 class Event {
   int _id;
   String _category;
@@ -46,5 +48,8 @@ class Event {
     this._desc = map['desc'];
     this._status = map['status'];
   }
-
+  getAll() async {
+    var db = new DatabaseHelper();
+    return await db.getAllEvents();
+  }
 }

@@ -1,4 +1,4 @@
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:agenda/utils/database.helper.dart';
 
 class Event {
   int _id;
@@ -8,7 +8,7 @@ class Event {
   String _desc;
   String _status;
 
-  Event(this._id, this._category, this._date, this._time, this._desc, this._status);
+  Event(this._category, this._date, this._time, this._desc, this._status);
 
   Event.map(dynamic obj){
     this._id = obj['id'];
@@ -48,5 +48,8 @@ class Event {
     this._desc = map['desc'];
     this._status = map['status'];
   }
-
+  getAll() async {
+    var db = new DatabaseHelper();
+    return await db.getAllEvents();
+  }
 }

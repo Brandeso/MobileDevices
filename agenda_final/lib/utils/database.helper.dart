@@ -41,7 +41,7 @@ class DatabaseHelper {
   void _onCreate(Database db, int newVersion) async {
     await db.execute(
       /* id | category | date | time | desc | status */
-        'CREATE TABLE $table($columnId INTEGER PRIMARY KEY, $columnCategory TEXT, $columnDate TEXT, $columnTime TEXT, $columnDescription TEXT, $columnStatus TEXT'
+        'CREATE TABLE $table($columnId INTEGER PRIMARY KEY, $columnCategory TEXT, $columnDate TEXT, $columnTime TEXT, $columnDescription TEXT, $columnStatus TEXT)'
     );
   }
 

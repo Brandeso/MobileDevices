@@ -1,4 +1,4 @@
-package com.example.agenda
+package com.example.agenda_final
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

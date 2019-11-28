@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:agenda/models/event.model.dart';
 import 'package:agenda/utils/database.helper.dart';
 
@@ -26,6 +24,22 @@ class _CreateScreen extends State<CreateScreen> {
     setState(() {
       _description = value;
     });
+  }
+
+  void _addEvent(Event event) async {
+    var db = new DatabaseHelper();
+
+    // Add Event
+    int savedEvent = await db.saveEvent(event);
+    if(savedEvent > 0) {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Success!'),
+            content: Text("Evento agregado exitosamente"),
+          )
+      );
+    }
   }
 
   @override
@@ -211,7 +225,7 @@ class _CreateScreen extends State<CreateScreen> {
                     shape: StadiumBorder(),
                     splashColor: Theme.of(context).accentColor,
                     color: Theme.of(context).primaryColor,
-                    onPressed: () => {},
+                    onPressed: ()=>{_addEvent(new Event(_selectedCategory, _date, _time, _description, _selectedStatus))},
                     child: Text("Crear Evento", style: TextStyle(color: Colors.white)),
                   ),
                 ),
