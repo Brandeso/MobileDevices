@@ -12,6 +12,8 @@ class DatabaseHelper {
   final String columnTime = 'time';
   final String columnDescription = 'desc';
   final String columnStatus = 'status';
+  final String columnContact = 'contact';
+  final String columnPlace = 'place';
 
   static final DatabaseHelper _instance = new DatabaseHelper.internal();
 
@@ -32,7 +34,7 @@ class DatabaseHelper {
 
   initDb() async {
     Directory documentDirectory = await getApplicationDocumentsDirectory();
-    String path = join(documentDirectory.path, 'maindb.db');
+    String path = join(documentDirectory.path, 'eventdb.db');
 
     var ourDb = await openDatabase(path, version: 1, onCreate: _onCreate);
     return ourDb;
@@ -41,7 +43,7 @@ class DatabaseHelper {
   void _onCreate(Database db, int newVersion) async {
     await db.execute(
       /* id | category | date | time | desc | status */
-        'CREATE TABLE $table($columnId INTEGER PRIMARY KEY, $columnCategory TEXT, $columnDate TEXT, $columnTime TEXT, $columnDescription TEXT, $columnStatus TEXT)'
+        'CREATE TABLE $table($columnId INTEGER PRIMARY KEY, $columnCategory TEXT, $columnDate TEXT, $columnTime TEXT, $columnDescription TEXT, $columnStatus TEXT, $columnContact TEXT, $columnPlace TEXT)'
     );
   }
 

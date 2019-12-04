@@ -30,6 +30,8 @@ class _CreateScreen extends State<CreateScreen> {
   String _selectedContact = '';
   TextEditingController guestnameTextFieldController = TextEditingController();
 
+  // Places
+  String _selectedPlace = '';
   void _onChange(String value) {
     setState(() {
       _description = value;
@@ -47,6 +49,14 @@ class _CreateScreen extends State<CreateScreen> {
           builder: (context) => AlertDialog(
             title: Text('Success!'),
             content: Text("Evento agregado exitosamente"),
+          )
+      );
+    } else {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Error'),
+            content: Text("El evento no pudo ser agregado"),
           )
       );
     }
@@ -279,7 +289,7 @@ class _CreateScreen extends State<CreateScreen> {
                         shape: StadiumBorder(),
                         splashColor: Theme.of(context).accentColor,
                         color: Theme.of(context).primaryColor,
-                        onPressed: ()=>{_addEvent(new Event(_selectedCategory, _date, _time, _description, _selectedStatus ))},
+                        onPressed: ()=>{_addEvent(new Event(_selectedCategory, _date, _time, _description, _selectedStatus, _selectedContact, _selectedPlace ))},
                         child: Text("Crear Evento", style: TextStyle(color: Colors.white)),
                       ),
                     ),
