@@ -35,7 +35,7 @@ class _viewState extends State<ViewScreen> {
             ),
             title: new Text("Categoria: ${Event.fromMap(_events[position]).Category}\nFecha: ${Event.fromMap(_events[position]).Date}"),
             subtitle: new Text("Estado: ${Event.fromMap(_events[position]).Status}\nContacto: ${Event.fromMap(_events[position]).Contact} \nDescripción: ${Event.fromMap(_events[position]).Desc}"),
-            trailing: Tooltip(
+          /*  trailing: Tooltip(
                 message: "Editar Evento",
                 child: RawMaterialButton(
                   constraints: const BoxConstraints(
@@ -46,7 +46,7 @@ class _viewState extends State<ViewScreen> {
                   elevation: 0.5,
                   shape: CircleBorder(),
                 ),
-              )
+              ) */
           )
         );
       },
